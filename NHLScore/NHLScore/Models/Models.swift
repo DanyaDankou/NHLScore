@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Team: Codable {
+struct Team: Codable {    
     let id: Int
     let name: String
     let link: String
@@ -58,3 +58,6 @@ struct Franchise: Codable {
     let link: String
 }
 
+struct TeamsResponse: Codable {
+    let teams: [Team]
+}

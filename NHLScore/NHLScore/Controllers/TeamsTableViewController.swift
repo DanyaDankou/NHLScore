@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class TeamsTableViewController: UITableViewController {
     
@@ -20,17 +21,17 @@ class TeamsTableViewController: UITableViewController {
     private func fetchTeams() {
         guard let teamsURL = getTeamsURL() else { return }
         
-        AF.request (teamsURL).responseData { (response) in
+        AF.request(teamsURL).responseData { (response) in
             if let error = response.error {
                 print(error.localizedDescription)
                 return
             }
-            
             guard let data = response.data else { return }
             
             do {
-                self.teams = try JSONDecoder().decode([Team].self, from: data)
-                print(self.teams)
+                let teamsResponse = try JSONDecoder().decode(TeamsResponse.self, from: data)
+                self.teams = teamsResponse.teams
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
