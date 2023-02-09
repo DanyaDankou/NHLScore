@@ -14,4 +14,6 @@ struct APIConstants {
     static let standingsEndpoint = "standings"
     static let playersEndpoint = "players"
     static let statisticsEndpoint = "statistics"
+    static let teamsID = "{teamId}"
+    static let roster = "roster"
 }

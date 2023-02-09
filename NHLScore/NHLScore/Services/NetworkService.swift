@@ -7,23 +7,28 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
-//class NetworkService {
-//
-//let url = "https://statsapi.web.nhl.com/api/v1/teams"
-//
-//     AF.request(url, headers: nil)
-//    .validate()
-//    .responseJSON { response in
-//        switch response.result {
-//        case .success(let value):
-//            print(value)
-//        case .failure(let error):
-//            print(error)
-//        }
-//    }
-//}
+
+
+class NetworkingManager {
+    
+    static let shared = NetworkingManager()
+    private init() {}
+    
+   static func fetch(completion: @escaping (Result<TeamsResponse, Error>) -> Void) {
+       
+        guard let teamsURL = getTeamsURL() else { return }
+    
+        AF.request(teamsURL).responseDecodable(of: TeamsResponse.self) { (response) in
+            switch response.result {
+            case .success(let teamsResponse):
+                completion(.success(teamsResponse))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+}
 
 
 
