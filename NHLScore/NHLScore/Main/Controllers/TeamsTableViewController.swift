@@ -7,6 +7,8 @@
 
 import UIKit
 import Alamofire
+import SwiftUI
+import Combine
 
 
 class TeamsTableViewController: UITableViewController {
@@ -14,11 +16,14 @@ class TeamsTableViewController: UITableViewController {
     var teams = [Team]()
     var conferences = [Conference]()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fetchTeams()
-        NetworkingManager.fetch { [weak self] (result) in
-                    guard let self = self else { return }
+        
+        guard let teamsURL = getTeamsURL() else { return }
+
+        NetworkingManager.shared.fetch (from: teamsURL, responseType: TeamsResponse.self) { result in
                     switch result {
                     case .success(let teamsResponse):
                         self.teams = teamsResponse.teams
@@ -28,6 +33,7 @@ class TeamsTableViewController: UITableViewController {
             }
         }
     }
+        
     
     
     // MARK: - Table view data source
@@ -48,22 +54,11 @@ class TeamsTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showTeamDetails", sender: indexPath)
-      }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showTeamDetails",
-//          let destination = segue.destination as? TeamDetailsViewController,
-//          let team = sender as? Team {
-//            destination.team = team
-//        }
-//      }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? TeamDetailsViewController,
-           let indexPath = sender as? IndexPath {
-            let team = teams[indexPath.row]
-            vc.team = team
-        }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let team = teams[indexPath.row]
+        let teamLogoView = UIHostingController(rootView: TeamInfoView(teamInfo: team))
+        navigationController?.pushViewController(teamLogoView, animated: true)
     }
 }

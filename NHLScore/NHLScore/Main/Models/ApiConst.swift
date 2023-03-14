@@ -16,4 +16,6 @@ struct APIConstants {
     static let statisticsEndpoint = "statistics"
     static let teamsID = "{teamId}"
     static let roster = "roster"
+    static let logoURL = "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/"
+    static let logoFormat = ".svg"
 }

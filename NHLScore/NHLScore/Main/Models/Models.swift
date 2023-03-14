@@ -61,3 +61,12 @@ struct Franchise: Codable {
 struct TeamsResponse: Codable {
     let teams: [Team]
 }
+
+
+struct TeamInfoResponse: Codable {
+    let id: Int
+    let name: String
+    let abbreviation: String
+}
+
+

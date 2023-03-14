@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		74A9B46A298EBA2B00AF922C /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9B469298EBA2B00AF922C /* TeamDetailsViewController.swift */; };
+		7447B13129BE0822001C8F1B /* TeamInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447B13029BE0822001C8F1B /* TeamInfoView.swift */; };
+		7447B13329BE2ED5001C8F1B /* TeamInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447B13229BE2ED5001C8F1B /* TeamInfoVC.swift */; };
 		74F500FC29853AEF00ADE2D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F500FB29853AEF00ADE2D6 /* AppDelegate.swift */; };
 		74F500FE29853AEF00ADE2D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F500FD29853AEF00ADE2D6 /* SceneDelegate.swift */; };
 		74F5010329853AEF00ADE2D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F5010129853AEF00ADE2D6 /* Main.storyboard */; };
@@ -24,7 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		74A9B469298EBA2B00AF922C /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
+		7447B13029BE0822001C8F1B /* TeamInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfoView.swift; sourceTree = "<group>"; };
+		7447B13229BE2ED5001C8F1B /* TeamInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfoVC.swift; sourceTree = "<group>"; };
 		74F500F829853AEF00ADE2D6 /* NHLScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NHLScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F500FB29853AEF00ADE2D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F500FD29853AEF00ADE2D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7447B12E29BE03FC001C8F1B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				74F5011C29853DA500ADE2D6 /* Models */,
+				74F5011029853B2000ADE2D6 /* Views */,
+				74F5011129853B4800ADE2D6 /* Controllers */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7447B12F29BE07B3001C8F1B /* TeamInfoSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				7447B13029BE0822001C8F1B /* TeamInfoView.swift */,
+			);
+			path = TeamInfoSwiftUI;
+			sourceTree = "<group>";
+		};
 		74F500EF29853AEE00ADE2D6 = {
 			isa = PBXGroup;
 			children = (
@@ -72,13 +92,12 @@
 		74F500FA29853AEF00ADE2D6 /* NHLScore */ = {
 			isa = PBXGroup;
 			children = (
-				74F5011C29853DA500ADE2D6 /* Models */,
 				74F5011229853BFE00ADE2D6 /* Services */,
-				74F5011129853B4800ADE2D6 /* Controllers */,
-				74F5011029853B2000ADE2D6 /* Views */,
-				74F5010F29853AFF00ADE2D6 /* AppDelegates */,
+				7447B12E29BE03FC001C8F1B /* Main */,
+				7447B12F29BE07B3001C8F1B /* TeamInfoSwiftUI */,
 				74F5010929853AF300ADE2D6 /* Info.plist */,
 				74F5010429853AF300ADE2D6 /* Assets.xcassets */,
+				74F5010F29853AFF00ADE2D6 /* AppDelegates */,
 			);
 			path = NHLScore;
 			sourceTree = "<group>";
@@ -105,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				74F50123298550F100ADE2D6 /* TeamsTableViewController.swift */,
-				74A9B469298EBA2B00AF922C /* TeamDetailsViewController.swift */,
+				7447B13229BE2ED5001C8F1B /* TeamInfoVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -122,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				74F5011D29853DC700ADE2D6 /* ApiConst.swift */,
-				74F50121298545B700ADE2D6 /* Models.swift */,
 				74F501252985515700ADE2D6 /* URLRequest.swift */,
+				74F50121298545B700ADE2D6 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,10 +231,11 @@
 				74F5012029853F6500ADE2D6 /* NetworkService.swift in Sources */,
 				74F50124298550F100ADE2D6 /* TeamsTableViewController.swift in Sources */,
 				74F500FC29853AEF00ADE2D6 /* AppDelegate.swift in Sources */,
+				7447B13129BE0822001C8F1B /* TeamInfoView.swift in Sources */,
 				74F50122298545B700ADE2D6 /* Models.swift in Sources */,
 				74F5011E29853DC700ADE2D6 /* ApiConst.swift in Sources */,
 				74F500FE29853AEF00ADE2D6 /* SceneDelegate.swift in Sources */,
-				74A9B46A298EBA2B00AF922C /* TeamDetailsViewController.swift in Sources */,
+				7447B13329BE2ED5001C8F1B /* TeamInfoVC.swift in Sources */,
 				74F501262985515700ADE2D6 /* URLRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
